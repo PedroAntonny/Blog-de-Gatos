@@ -10,7 +10,6 @@
 
 - [Demonstração](#tv-demonstração)
 - [Tecnologias](#hammer_and_wrench-tecnologias)
-- [Pré-requisitos](#warning-pré-requisitos)
 
 ## :tv: Demonstração
 
