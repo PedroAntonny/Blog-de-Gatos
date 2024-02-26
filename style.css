@@ -1,0 +1,278 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+:root {
+  font-size: 62.5%;
+
+  --hue: 195;
+  --color-primary: hsl(var(--hue), 91%, 25%);
+  --color-dark-900: hsl(240, 6%, 7%);
+  --color-dark-500: hsl(240, 6%, 13%);
+  --color-secondary: hsl(var(--hue), 46%, 40%);
+  --color-white: hsl(0, 0%, 100%);
+}
+
+html,
+body,
+input {
+  font-family: 'Mulish', sans-serif;
+}
+
+body {
+  font-size: 1.6rem;
+  background: var(--color-primary);
+}
+
+#page {
+  display: grid;
+  grid-template-rows: max-content 1fr max-content;
+  height: 100vh;
+}
+
+.container {
+  width: min(120rem, 100%);
+  margin: 0 auto;
+}
+
+header {
+  padding: 1.2rem 2.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2.6rem;
+}
+
+header form {
+  flex: 1;
+}
+
+.input-wrapper label {
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+}
+
+.input-wrapper input {
+  width: 100%;
+  padding: 1.2rem 1.5rem;
+  font-size: 1.6rem;
+  font-weight: 600;
+  border: 0;
+  border-radius: 0.4rem;
+  background: var(--color-secondary);
+  color: var(--color-white);
+}
+
+.input-wrapper input::placeholder {
+  color: var(--color-white);
+}
+
+header img {
+  width: 4.2rem;
+  height: 4.2rem;
+  border-radius: 50%;
+}
+
+main {
+  display: grid;
+  grid-template-areas: 'A' 'B';
+  gap: 3.4rem;
+  padding-bottom: 3.9rem;
+  background: var(--color-white);
+}
+
+main article {
+  grid-area: A;
+}
+
+main article > img {
+  width: 100%;
+  display: block;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  margin: 3.1rem 2.2rem;
+  gap: 0.8rem;
+}
+
+main h1 {
+  font-size: 2.4rem;
+  font-weight: 700;
+  line-height: 3.8rem;
+  color: var(--color-dark-500);
+}
+
+.btn {
+  display: flex;
+  gap: 1.2rem;
+}
+
+.btn button {
+  width: 4rem;
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: none;
+  background: var(--color-primary);
+}
+
+article p {
+  padding-inline: 2.2rem;
+  font-size: 1.6rem;
+  line-height: 2.5rem;
+  color: var(--color-dark-900);
+}
+
+aside {
+  grid-area: B;
+  margin-inline: 2.2rem;
+}
+
+.sections {
+  display: flex;
+  flex-direction: column;
+  gap: 3.2rem;
+  margin-top: 3.2rem;
+  align-items: self-start;
+}
+
+section {
+  display: flex;
+  gap: 1.6rem;
+  align-items: center;
+  justify-content: center;
+}
+
+section img {
+  display: block;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  border-radius: 0.5rem;
+  transition: 300ms;
+}
+
+section img:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+section h3 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  line-height: 2.5rem;
+  color: var(--color-dark-500);
+}
+
+section p {
+  font-size: 1.4rem;
+  line-height: 2.5rem;
+  color: var(--color-dark-900);
+}
+
+footer {
+  text-align: center;
+  padding-block: 2.6rem;
+}
+
+footer p {
+  font-weight: 600;
+  color: var(--color-white);
+}
+
+@media (min-width: 800px) {
+  main {
+    padding-top: 4.4rem;
+    grid-template-areas: 'A A B';
+    padding-inline: 2.2rem;
+  }
+  main article > img {
+    border-radius: 0.5rem;
+  }
+  .content {
+    margin-inline: 0;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  main h1 {
+    font-size: 1.8rem;
+    line-height: 3rem;
+  }
+  article p {
+    padding-inline: 0;
+  }
+  aside {
+    margin-inline: 0;
+  }
+  section h3 {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+
+  section p {
+    font-size: 1.4rem;
+    line-height: 2rem;
+  }
+}
+
+@media (min-width: 950px) {
+  main h1 {
+    font-size: 2.4rem;
+    line-height: 3.8rem;
+  }
+  section h3 {
+    font-size: 1.8rem;
+    line-height: 2.5rem;
+  }
+
+  section p {
+    font-size: 1.4rem;
+    line-height: 2.5rem;
+  }
+}
+
+/* Animations */
+
+header {
+  --startY: -100%;
+  animation: move 0.2s;
+}
+
+footer {
+  --startY: 100%;
+  animation: move 0.2s;
+}
+
+@keyframes move {
+  from {
+    transform: translateY(var(--startY));
+  }
+}
+
+.sections section {
+  --delay: 0.2s;
+  animation: appear 0.4s var(--delay) backwards;
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+
+  50% {
+    transform: scale(1);
+  }
+}
